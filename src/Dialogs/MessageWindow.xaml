@@ -1,0 +1,65 @@
+<Window 
+	x:Class="GrayKeeper.Dialogs.MessageWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Width="360" Height="150"
+    WindowStartupLocation="CenterOwner"
+    ResizeMode="NoResize" AllowsTransparency="True"
+    WindowStyle="None" ShowInTaskbar="False"
+    Background="Transparent">
+
+    <Border Background="{StaticResource WindowBrush}">
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                x:Name="TitleText"
+                Grid.Row="0"
+                Margin="10"
+                FontFamily="Segoe UI"
+                FontSize="16"
+                FontWeight="Regular"
+				HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Foreground="{StaticResource PrimaryTextBrush}"
+                Text="Некорректные данные"/>
+
+            <TextBlock
+                x:Name="MessageText"
+                Grid.Row="1"
+                Margin="20"
+                FontFamily="Segoe UI"
+                FontSize="14"
+				HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Foreground="{StaticResource SecondaryTextBrush}"
+                Text="Введите дату в формате 01.08.26 или 01.08.2026"
+                TextWrapping="Wrap"/>
+
+			<Button
+				Grid.Row="2"
+				Width="80"
+				Height="30"
+				Margin="10"
+				Background="#151515"
+				Click="OkButton_Click"
+				Style="{StaticResource PrimaryButton}">
+
+				<Image
+					Width="18"
+					Height="18"
+					Source="/Assets/main/check.png"/>
+
+			</Button>
+
+        </Grid>
+
+    </Border>
+
+</Window>
