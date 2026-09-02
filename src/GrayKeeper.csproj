@@ -1,0 +1,163 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.19041</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+
+	  <ApplicationIcon>Assets\brand\GrayKeeper.ico</ApplicationIcon>
+  </PropertyGroup>
+
+
+
+
+
+	<ItemGroup>
+    <Compile Remove="Assets\fonts\**" />
+    <Compile Remove="Assets\_other\**" />
+    <Compile Remove="Controls\Common\**" />
+    <Compile Remove="Helpers\**" />
+    <EmbeddedResource Remove="Assets\fonts\**" />
+    <EmbeddedResource Remove="Assets\_other\**" />
+    <EmbeddedResource Remove="Controls\Common\**" />
+    <EmbeddedResource Remove="Helpers\**" />
+    <None Remove="Assets\fonts\**" />
+    <None Remove="Assets\_other\**" />
+    <None Remove="Controls\Common\**" />
+    <None Remove="Helpers\**" />
+    <Page Remove="Assets\fonts\**" />
+    <Page Remove="Assets\_other\**" />
+    <Page Remove="Controls\Common\**" />
+    <Page Remove="Helpers\**" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Assets\brand\GrayKeeper.ico">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\btn\save_alt.png">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Resource>
+	</ItemGroup>
+
+	<ItemGroup>
+    <Compile Remove="Services\ExpenseStorageService.cs" />
+    <Compile Remove="ViewModels\DashboardViewModel.cs" />
+    <Compile Remove="ViewModels\MainViewModel _backup.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\add.png" />
+    <None Remove="Assets\brand\logo.png" />
+    <None Remove="Assets\btn\about.png" />
+    <None Remove="Assets\btn\add.png" />
+    <None Remove="Assets\btn\delete.png" />
+    <None Remove="Assets\btn\refresh.png" />
+    <None Remove="Assets\btn\save.png" />
+    <None Remove="Assets\btn\save_alt.png" />
+    <None Remove="Assets\calendar.png" />
+    <None Remove="Assets\calendar_lef.png" />
+    <None Remove="Assets\calendar_right.png" />
+    <None Remove="Assets\check.png" />
+    <None Remove="Assets\close.png" />
+    <None Remove="Assets\delete.png" />
+    <None Remove="Assets\expand.png" />
+    <None Remove="Assets\info.png" />
+    <None Remove="Assets\link.png" />
+    <None Remove="Assets\logo.png" />
+    <None Remove="Assets\mail.png" />
+    <None Remove="Assets\main\calendar.png" />
+    <None Remove="Assets\main\check.png" />
+    <None Remove="Assets\main\search.png" />
+    <None Remove="Assets\min.png" />
+    <None Remove="Assets\refresh.png" />
+    <None Remove="Assets\search.png" />
+    <None Remove="Assets\shrink.png" />
+    <None Remove="Assets\size.png" />
+    <None Remove="Assets\warning.png" />
+    <None Remove="Assets\window\close.png" />
+    <None Remove="Assets\window\expand.png" />
+    <None Remove="Assets\window\min.png" />
+    <None Remove="Assets\window\shrink-1.png" />
+    <None Remove="Assets\window\shrink.png" />
+    <None Remove="Data\expenses.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Controls\Dashboard\ExpenseEditor.xaml" />
+    <Page Remove="Controls\Dashboard\ReportChart.xaml" />
+    <Page Remove="Dialogs\AddTripDialog.xaml" />
+    <Page Remove="Dialogs\EditTripDialog.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\btn\save.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Templates\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    
+	  
+    <PackageReference Include="ClosedXML" Version="0.105.1" />
+    
+	  
+    <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.5" />
+    <PackageReference Include="MaterialDesignColors" Version="5.3.2" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\brand\logo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\btn\about.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\btn\add.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\btn\delete.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\btn\refresh.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\main\calendar.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\main\check.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\main\search.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\window\close.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\window\expand.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\window\min.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\window\shrink.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Styles\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+</Project>
