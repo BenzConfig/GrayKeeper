@@ -1,0 +1,28 @@
+<UserControl 
+    x:Class="GrayKeeper.Controls.Dashboard.BalanceChart"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+    xmlns:charts="clr-namespace:GrayKeeper.Charts">
+
+    <Border
+        Style="{StaticResource CardStyle}"
+        Padding="10">
+
+        <lvc:CartesianChart
+            Background="#111111"
+            Series="{Binding BalanceSeries}"
+            XAxes="{Binding BalanceXAxes}"
+            YAxes="{Binding BalanceYAxes}"
+            AnimationsSpeed="0:0:1"
+            ZoomMode="None">
+
+            <lvc:CartesianChart.Tooltip>
+                <charts:BalanceTooltip/>
+            </lvc:CartesianChart.Tooltip>
+
+        </lvc:CartesianChart>
+
+    </Border>
+
+</UserControl>

@@ -1,0 +1,40 @@
+<UserControl
+    x:Class="GrayKeeper.Controls.Dashboard.ExpensesPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cards="clr-namespace:GrayKeeper.Controls.Cards"
+    Focusable="False">
+
+    <Grid>
+        <ListBox
+            ItemsSource="{Binding CurrentExpensesView}"
+            SelectedItem="{Binding SelectedExpense, Mode=TwoWay}"
+            SelectionMode="Single"
+            Background="Transparent"
+            BorderThickness="1"
+            BorderBrush="Transparent"
+            HorizontalContentAlignment="Stretch"
+            Margin="5,0,0,0">
+
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    
+                    <WrapPanel Orientation="Horizontal"/>
+                    
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+
+                    <cards:ExpenseItemCard
+                        Margin="10,0,0,0"/>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+
+    </Grid>
+    
+</UserControl>
