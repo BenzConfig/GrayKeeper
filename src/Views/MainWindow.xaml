@@ -1,0 +1,137 @@
+﻿<Window
+    x:Class="GrayKeeper.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework"
+    xmlns:pages="clr-namespace:GrayKeeper.Pages"
+    Title="GrayKeeper"
+    Icon="/Assets/brand/GrayKeeper.ico"
+    Width="1290" Height="760"
+    MinWidth="1000" MinHeight="650"
+    WindowStartupLocation="CenterScreen"
+    Background="{StaticResource WindowBrush}"
+    WindowStyle="SingleBorderWindow">
+
+    <shell:WindowChrome.WindowChrome>
+        <shell:WindowChrome
+            CaptionHeight="42"
+            CornerRadius="0"
+            GlassFrameThickness="0"
+            ResizeBorderThickness="6"
+            UseAeroCaptionButtons="False"/>
+    </shell:WindowChrome.WindowChrome>
+
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            
+            <RowDefinition Height="42"/>
+            <RowDefinition Height="*"/>
+            
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="#050505">
+
+            <Grid shell:WindowChrome.IsHitTestVisibleInChrome="True">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="138"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Блок заголовка + лого -->
+                <Grid Grid.Column="0"
+                    Background="Transparent"
+                    MouseLeftButtonDown="Header_MouseLeftButtonDown">
+
+                    <StackPanel
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        Margin="14,0">
+
+                        <Image
+                            Width="28"
+                            Height="28"
+                            Source="/Assets/brand/logo.png"/>
+
+                        <TextBlock
+                            Margin="10,0,0,0"
+                            VerticalAlignment="Center"
+                            FontFamily="Segoe UI"
+                            FontSize="14"
+                            FontWeight="Light"
+                            Foreground="White"
+                            Text="GrayKeeper"/>
+
+                        <TextBlock
+                            Margin="3,0,0,0"
+                            VerticalAlignment="Center"
+                            FontFamily="Segoe UI Variable"
+                            FontSize="14"
+                            FontWeight="Medium"
+                            Foreground="White"
+                            Text="Win64"/>
+
+                    </StackPanel>
+
+                </Grid>
+
+                <!-- Блок кнопок -->
+                <Grid Grid.Column="1">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="46"/>
+                        <ColumnDefinition Width="46"/>
+                        <ColumnDefinition Width="46"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Свернуть -->
+                    <Button Grid.Column="0"
+                        Style="{StaticResource TitleBarButtonStyle}"
+                        Click="MinimizeButton_Click">
+
+                        <Image
+                            Width="16"
+                            Height="Auto"
+                            Source="/Assets/window/min.png"/>
+                        
+                    </Button>
+
+                    <!-- Развернуть -->
+                    <Button Grid.Column="1"
+                        Style="{StaticResource TitleBarButtonStyle}"
+                        Click="MaximizeButton_Click">
+
+                        <Image
+                            x:Name="MaximizeIcon"
+                            Width="15"
+                            Height="Auto"
+                            Source="/Assets/window/expand.png"/>
+
+                    </Button>
+
+                    <!-- Закрыть -->
+                    <Button Grid.Column="2"
+                        Style="{StaticResource CloseButtonStyle}"
+                        Click="CloseButton_Click">
+
+                        <Image
+                            Width="15"
+                            Height="Auto"
+                            Source="/Assets/window/close.png"/>
+                        
+                    </Button>
+
+                </Grid>
+                
+            </Grid>
+            
+        </Border>
+
+        <!-- Контент -->
+        <pages:DashboardPage Grid.Row="1" Loaded="DashboardPage_Loaded"/>
+
+    </Grid>
+
+</Window>

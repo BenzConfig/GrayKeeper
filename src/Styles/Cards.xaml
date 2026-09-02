@@ -1,0 +1,23 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="CardStyle" TargetType="Border">
+
+        <Setter Property="Background" Value="{StaticResource CardBrush}"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="Padding" Value="0"/>
+
+    </Style>
+
+    <!-- Карточка командировки -->
+    <Style x:Key="TripCardStyle" TargetType="Border">
+
+        <Setter Property="Background" Value="#151515"/>
+        <Setter Property="BorderBrush" Value="{StaticResource TripBorderNormalBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="10,10,10,10"/>
+
+    </Style>
+
+</ResourceDictionary>

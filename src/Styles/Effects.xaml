@@ -1,0 +1,26 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Карточка -->
+    <DropShadowEffect x:Key="CardShadow"
+        BlurRadius="18"
+        ShadowDepth="0"
+        Color="#000000"
+        Opacity="0.0"/>
+
+    <!-- Голубое свечение -->
+    <DropShadowEffect x:Key="CyanGlow"
+        BlurRadius="16"
+        ShadowDepth="0"
+        Color="#4CC2FF"
+        Opacity="0.18"/>
+
+    <!-- Сильное свечение (для FAB и графика) -->
+    <DropShadowEffect x:Key="NeonGlow"
+        BlurRadius="26"
+        ShadowDepth="0"
+        Color="#4CC2FF"
+        Opacity="0.35"/>
+
+</ResourceDictionary>

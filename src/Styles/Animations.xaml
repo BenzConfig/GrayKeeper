@@ -1,0 +1,53 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Storyboard x:Key="FadeInScale">
+
+        <!-- Появление -->
+        <DoubleAnimation
+            Storyboard.TargetProperty="Opacity"
+            From="0"
+            To="1"
+            Duration="0:0:0.20"/>
+
+        <!-- Лёгкое увеличение -->
+        <DoubleAnimation
+            Storyboard.TargetProperty="RenderTransform.ScaleX"
+            From="0.96"
+            To="1"
+            Duration="0:0:0.20"/>
+
+        <DoubleAnimation
+            Storyboard.TargetProperty="RenderTransform.ScaleY"
+            From="0.96"
+            To="1"
+            Duration="0:0:0.20"/>
+
+    </Storyboard>
+
+	
+	<!-- Появление свечения выбранной карточки -->
+	<Storyboard x:Key="TripSelectedGlowIn">
+
+		<DoubleAnimation
+			Storyboard.TargetProperty="Effect.Opacity"
+			From="0"
+			To="0.20"
+			Duration="0:0:0.18"/>
+
+	</Storyboard>
+
+
+	<!-- Исчезновение свечения -->
+	<Storyboard x:Key="TripSelectedGlowOut">
+
+		<DoubleAnimation
+			Storyboard.TargetProperty="Effect.Opacity"
+			From="0.20"
+			To="0"
+			Duration="0:0:0.18"/>
+
+	</Storyboard>
+
+</ResourceDictionary>

@@ -1,0 +1,141 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:behaviors="clr-namespace:GrayKeeper.Behaviors">
+    
+    <!-- Кнопка открытия календаря -->
+    <Style x:Key="DatePickerButtonStyle" TargetType="Button">
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Border" CornerRadius="8" Background="Transparent">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <!-- Hover -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="#252525"/>
+                        </Trigger>
+                        <!-- Pressed -->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="#181818"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- Основной DatePicker -->
+    <Style
+        x:Key="DarkDatePicker"
+        TargetType="DatePicker"
+        BasedOn="{StaticResource MaterialDesignDatePicker}">
+
+        <Setter Property="Height" Value="34"/>
+        <Setter Property="Foreground" Value="{StaticResource PrimaryTextBrush}"/>
+        <Setter Property="Background" Value="#181818"/>
+        <Setter Property="BorderBrush" Value="#333333"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="10,0"/>
+
+        <Setter
+            Property="Template">
+            
+            <Setter.Value>
+                <ControlTemplate
+                    TargetType="DatePicker">
+                    
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="8">
+                        
+                        <Grid>
+                            
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="34"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <!-- Поле даты -->
+                            <DatePickerTextBox
+                                x:Name="PART_TextBox"
+                                Grid.Column="0"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Foreground="{TemplateBinding Foreground}"
+                                Padding="10,0"
+                                Margin="5,0"
+                                IsReadOnly="False"/>
+                            
+                            <!-- Кнопка календаря -->
+                            <Button
+                                x:Name="PART_Button"
+                                Grid.Column="1"
+                                Style="{StaticResource DatePickerButtonStyle}">
+                                
+                                <Image
+                                    Width="20"
+                                    Height="20"
+                                    Margin="0"
+                                    Opacity="0.70"
+                                    Source="/Assets/main/calendar.png"/>
+                            </Button>
+                            
+                            <!-- Popup календаря -->
+                            <Popup
+                                x:Name="PART_Popup"
+                                Placement="Bottom"
+                                PlacementTarget="{Binding ElementName=PART_TextBox}"
+                                AllowsTransparency="True"
+                                StaysOpen="False"
+                                Focusable="False"
+                                behaviors:PopupAnimationBehavior.EnableAnimation="True">
+                                
+                                <Border
+                                    Background="#181818"
+                                    BorderBrush="#333333"
+                                    BorderThickness="1"
+                                    CornerRadius="10"
+                                    Padding="10">
+                                    
+                                    <Calendar
+                                        x:Name="PART_Calendar"
+                                        Style="{StaticResource DarkCalendar}"/>
+                                </Border>
+                                
+                            </Popup>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        
+    </Style>
+    
+    <!-- Поле ввода внутри DatePicker -->
+    <Style TargetType="{x:Type DatePickerTextBox}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource PrimaryTextBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="10,0"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="CaretBrush" Value="{StaticResource PrimaryTextBrush}"/>
+        <Setter Property="SelectionBrush" Value="#404040"/>
+        <Setter Property="SelectionTextBrush" Value="White"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DatePickerTextBox}">
+                    <Border Background="Transparent" BorderThickness="0">
+                        <ScrollViewer x:Name="PART_ContentHost" VerticalContentAlignment="Center" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>
